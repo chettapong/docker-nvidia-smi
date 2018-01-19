@@ -1,7 +1,5 @@
 FROM nvidia/cuda
 
-MAINTAINER Kristoph Junge <kristoph.junge@gmail.com>
-
 RUN apt-get update && \
     apt-get -y install golang --no-install-recommends && \
     rm -r /var/lib/apt/lists/*

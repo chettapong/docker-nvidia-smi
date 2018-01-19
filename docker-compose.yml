@@ -2,7 +2,7 @@ version: '2'
 
 services:
   prometheus_nvidiasmi:
-    container_name: prometheus_nvidiasmi
+    container_name: gardenminer/nvidia-smi
     build: .
     environment:
       TEST_MODE: 1
