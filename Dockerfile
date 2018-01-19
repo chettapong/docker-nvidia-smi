@@ -8,8 +8,8 @@ WORKDIR /go
 
 COPY . .
 
+RUN export GOPATH="/go"
 RUN go get github.com/basgys/goxml2json
-RUN go install -v
 RUN go build -v -o bin/app src/app.go
 
 CMD ["./bin/app"]
