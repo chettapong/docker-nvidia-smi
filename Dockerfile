@@ -1,6 +1,7 @@
 FROM nvidia/cuda
 
 RUN apt-get update && \
+    apt-get install git && \
     apt-get -y install golang --no-install-recommends && \
     rm -r /var/lib/apt/lists/*
 
