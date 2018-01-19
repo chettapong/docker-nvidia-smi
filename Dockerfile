@@ -8,7 +8,7 @@ WORKDIR /go
 
 COPY . .
 
-RUN export GOPATH="/go"
+ENV GOPATH /go
 RUN go get github.com/basgys/goxml2json
 RUN go build -v -o bin/app src/app.go
 
