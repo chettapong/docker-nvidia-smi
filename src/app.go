@@ -22,7 +22,7 @@ func filterNumber(value string) string {
 	return r.ReplaceAllString(value, "")
 }
 
-func json(w http.ResponseWriter, r *http.Request) {
+func getJSON(w http.ResponseWriter, r *http.Request) {
 	log.Print("Serving /json")
 
 	var cmd *exec.Cmd
@@ -51,10 +51,11 @@ func json(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Output
+	w.Header().Set("Content-Type", "application/json")
 	io.WriteString(w, json.String())
 }
 
-func index(w http.ResponseWriter, r *http.Request) {
+func getIndex(w http.ResponseWriter, r *http.Request) {
 	log.Print("Serving /index")
 	html := `<!doctype html>
 <html>
@@ -77,7 +78,7 @@ func main() {
 	}
 
 	log.Print("Nvidia SMI exporter listening on " + LISTEN_ADDRESS)
-	http.HandleFunc("/", index)
-	http.HandleFunc("/json", json)
+	http.HandleFunc("/", getIndex)
+	http.HandleFunc("/json", getJSON)
 	http.ListenAndServe(LISTEN_ADDRESS, nil)
 }
