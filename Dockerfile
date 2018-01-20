@@ -1,7 +1,7 @@
 FROM nvidia/cuda:9.0-devel
 
-RUN apt-get update && \
-    apt-get -y install git golang --no-install-recommends && \
+RUN apt-get -y update
+RUN apt-get -y install git golang --no-install-recommends && \
     rm -r /var/lib/apt/lists/*
 
 ENV GOPATH /go
