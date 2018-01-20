@@ -1,9 +1,8 @@
 version: '2'
 
 services:
-  prometheus_nvidiasmi:
+  gardenminer_nvidia_smi:
+    container_name: nvidia_smi
     image: gardenminer/nvidia-smi
-    environment:
-      TEST_MODE: 1
     ports:
       - "9202:9202"
